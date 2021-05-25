@@ -1,0 +1,20 @@
+{% extends 'index1.html' %}
+
+{% block head %}
+        <title>Login</title>
+{% endblock %}
+
+{% block body %}
+<div class="log-form">
+    <h2>Mini project login form</h2>
+    <form action="{{ url_for("login")}}" method="post">
+        <input type="text" title="username" name="user" placeholder="username" />
+        <br>
+        <br>
+        <input type="password" title="username" name="pswd" placeholder="password" />
+        <br>
+        <br>
+        <button type="submit" class="btn">Login</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,9 +1,24 @@
-#Not completed
-#sql and web purpose
-filehnd = open('known_faces.txt')
+from flask import Flask, render_template, request
 
-for line in filehnd:
-    print(line.rstrip())
 
-face_1 = face_recognition.load_image_file("images/veena.jpg")
-face_1_encoding = face_recognition.face_encodings(face_1)[0]
+
+
+web = Flask(__name__)
+
+@web.route('/',  methods =["GET", "POST"])
+def login():
+    if request.method == "POST":
+        user_name = request.form.get("user")
+        password = request.form.get("pswd")
+        if (user_name=='dsatm' and password=='dsatm'):
+            return render_template("interface.html")
+    return render_template("index.html")
+
+
+#def index():
+#   return render_template('index.html')
+
+
+
+
+web.run(debug=True)

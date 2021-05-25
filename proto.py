@@ -8,6 +8,7 @@ import imutils
 import base64
 import datetime
 from dateutil import parser
+import time
 
 
 path = os.getcwd()
@@ -92,7 +93,7 @@ def qr_det(frame):
 
         if date_time_obj > present:
             bool = True
-            print('Door unlocked!')
+
     except:
         pass
 
@@ -106,7 +107,8 @@ def clear_folder():
 
 
 print('Starting.....')
-while True:
+Door = False
+while (Door==False):
 
     _, frame = video.read()
     frame = imutils.resize(frame, width=400)
@@ -116,14 +118,20 @@ while True:
             #print(type(unknown_images),unknown_images)
             person_name = face_rec('images/unknown/'+unknown_images)
             if person_name != "Unknown":
-                print(f"Hi {person_name} door is now unlocked!")
+                print(f"{person_name} detected")
+                Door = True
                 os.remove(path+'\\images\\unknown\\'+unknown_images)
                 break
 
     if qr_det(frame):
         print('qr code detected')
+        Door = True
         break
 
+    if Door == True:
+        print('Door is now unlocked!')
+        time.sleep(5)
+        Door == False
 
 
 

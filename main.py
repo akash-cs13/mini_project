@@ -117,6 +117,7 @@ face_1_encoding = face_recognition.face_encodings(face_1)[0]
 
 face_2 = face_recognition.load_image_file("images/gautham.jpg")
 face_2_encoding = face_recognition.face_encodings(face_2)[0]
+print(face_2_encoding, '\n', type(face_2_encoding))
 
 
 face_3 = face_recognition.load_image_file("images/akash.jpg")

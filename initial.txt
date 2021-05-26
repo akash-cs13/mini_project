@@ -1,3 +1,3 @@
-INSERT INTO known VALUES ('Akash CS', 'images/akash.jpg', 'images/akash_temp.jpg')
-INSERT INTO known VALUES ('Arvind M', 'images/arvind.jpg', 'images/arvind_temp.jpg')
-INSERT INTO known VALUES ('Gautham R', 'images/gautham.jpg', 'images/gautham_temp.jpg')
+Akash CS$akash$images/akash.jpg
+Arvind M$arvind$images/arvind.jpg
+Gautham R$gautham$images/gautham.jpg

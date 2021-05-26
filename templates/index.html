@@ -1,20 +1,15 @@
-{% extends 'index1.html' %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/static/styles.css"/>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+      <div class="center">
+      {% block body %}{% endblock %}
+      </div>
+    </body>
 
-{% block head %}
-        <title>Login</title>
-{% endblock %}
-
-{% block body %}
-<div class="log-form">
-    <h2>Mini project login form</h2>
-    <form action="{{ url_for("login")}}" method="post">
-        <input type="text" title="username" name="user" placeholder="username" />
-        <br>
-        <br>
-        <input type="password" title="username" name="pswd" placeholder="password" />
-        <br>
-        <br>
-        <button type="submit" class="btn">Login</button>
-    </form>
-</div>
-{% endblock %}
+</html>

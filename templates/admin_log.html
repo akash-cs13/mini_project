@@ -5,19 +5,30 @@
 {% endblock %}
 
 {% block body %}
-<table class="table">
-    <tr class="table__header">
-        {% for header in headings %}
-        <th class="table__cell">{{ header }}</th>
+<form action="{{ url_for("add_user")}}">
+    <input type="submit" value="Add User" />
+</form>
+<form action="{{ url_for("gen_qr")}}">
+    <input type="submit" value="Generate QR" />
+</form>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr class="table__header">
+            {% for header in headings %}
+            <th class="table__cell">{{ header }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr class="table__row">
+            {% for cell in row %}
+            <td class="table__cell">{{ cell }}</td>
+            {% endfor %}
+        </tr>
         {% endfor %}
-    </tr>
-    {% for row in data %}
-    <tr class="table__row"> 
-        {% for cell in row %}
-        <td class="table__cell">{{ cell }}</td>
-        {% endfor %}
-    </tr>
-    {% endfor %}
-    
+    </tbody>
 </table>
 {% endblock %}
+
+

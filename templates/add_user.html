@@ -7,13 +7,23 @@
 {% block body %}
 <div>
     <h2>Add User</h2>
-    <form action="{{ url_for("add_user")}}" method="post">
+    <form action="{{ url_for("add_user")}}" method="POST" enctype="multipart/form-data">
         <input type="text" title="Name" name="name" placeholder="name" />
+        <br><br>
         <input type="text" title="Password" name="password" placeholder="password" />
-        <input type="text" title="Image" name="image" placeholder="image" />
-        <br>
-        <br>
-        <button type="submit" class="btn">Add</button>
+        <br><br><br><br>
+        <div class="form-group">
+          <label>Select image</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image" id="image">
+            <label class="custom-file-label" for="image"></label>
+          </div>
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-primary">Upload</button>
+
+      </form>
+
     </form>
 </div>
 {% endblock %}

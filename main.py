@@ -66,7 +66,9 @@ class Face:
             date_time_obj = parser.parse(decoded_data)
 
             if date_time_obj > present:
+                print('unlocking door! with qr')
                 bool = True
+
 
         except:
             pass
@@ -98,8 +100,8 @@ def qr_face():
 
         if Door == True:
             print('Door is now unlocked for 15s!')
-            time.sleep(15)
-            Door == False
+            #time.sleep(15)
+            Door = False
 
 
 
@@ -117,7 +119,7 @@ face_1_encoding = face_recognition.face_encodings(face_1)[0]
 
 face_2 = face_recognition.load_image_file("images/gautham.jpg")
 face_2_encoding = face_recognition.face_encodings(face_2)[0]
-print(face_2_encoding, '\n', type(face_2_encoding))
+#print(face_2_encoding, '\n', type(face_2_encoding))
 
 
 face_3 = face_recognition.load_image_file("images/akash.jpg")
@@ -131,7 +133,7 @@ face_names = ["Arvind","Gautham","Akash"]
 face_obj = Face(face_encoding,face_names)
 
 print('Opening Camera.....')
-video = cv2.VideoCapture('vid.mp4')
+video = cv2.VideoCapture(0)
 print('Starting.......')
 while True:
     try:

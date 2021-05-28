@@ -7,7 +7,7 @@
 {% block body %}
 <div>
     <h2>Generate QR Code</h2>
-    <form action="{{ url_for("gen_qr")}}" method="post">
+    <form action="/login/qr-form" method="post">
         <input type="text" title="days" name="days" placeholder="days" />
         <input type="text" title="hours" name="hours" placeholder="hours" />
         <input type="text" title="minutes" name="minutes" placeholder="minutes" />

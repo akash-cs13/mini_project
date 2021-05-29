@@ -111,7 +111,7 @@ def qr_face():
 
         if door == True:
             db_obj.update_log(person_name)
-            print('Door is now unlocked for 15s!')
+            print('Door is now unlocked for 5s!')
             time.sleep(5)
             door = False
 

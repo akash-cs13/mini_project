@@ -10,6 +10,6 @@ Face Recognition and QR Code door unlock
 6. Can also check door unlocking for QR Code and it will also promt if the generated QR Code is expired.
 
 Steps to run environment:
-1. Go to directory in which downloaded folder is present ---> cd .../mini_project
-2. Paste the command ---> venv/Scripts/activate
+1. Go to directory in which downloaded folder is present ---> cd ...\mini_project
+2. Paste the command ---> venv\Scripts\activate
 3. Now you can run the program in cmd window

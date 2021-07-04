@@ -61,28 +61,28 @@ class Face:
 
 
 
-    def qr_det(self,frame):
-        bool = False
-        d = cv2.QRCodeDetector()
-        to_decode, type, pos = d.detectAndDecode(frame)
-        base64_bytes = to_decode.encode("ascii")
-        decoded_string_bytes = base64.b64decode(base64_bytes)
-        decoded_data = decoded_string_bytes.decode("ascii")
+def qr_det(frame):
+    bool_val = False
+    d = cv2.QRCodeDetector()
+    to_decode, _type, pos = d.detectAndDecode(frame)
+    base64_bytes = to_decode.encode("ascii")
+    decoded_string_bytes = base64.b64decode(base64_bytes)
+    decoded_data = decoded_string_bytes.decode("ascii")
 
-        try:
-            present = datetime.datetime.now()
-            date_time_obj = parser.parse(decoded_data)
+    try:
+        present = datetime.datetime.now()
+        date_time_obj = parser.parse(decoded_data)
 
-            if date_time_obj > present:
-                print('QR Code detected Door Unlocking!')
-                bool = True
-            else:
-                print('QR Code detected is expired')
+        if date_time_obj > present:
+            print('QR Code detected Door Unlocking!')
+            bool_val = True
+        else:
+            print('QR Code detected is expired')
 
-        except:
-            pass
+    except:
+        pass
 
-        return bool
+    return bool_val
 
 
 
@@ -91,12 +91,15 @@ def qr_face():
     while (door == False):
 
         _, frame = video.read()
-        frame = imutils.resize(frame, width=400)
+        #frame = imutils.resize(frame, width=400)
 
-        if face_obj.qr_det(frame):
+        bool_val = qr_det(frame)
+        if bool_val:
             door = True
-            person_name = "QR code"
-            break
+            person_name = "QR Code"
+            db_obj.update_log(person_name)
+            print('Door is now unlocked for 5s!')
+            time.sleep(5)
 
         if face_obj.face_det(frame):
             for unknown_images in directory:
@@ -105,14 +108,17 @@ def qr_face():
                 if person_name != "Unknown":
                     print(f"{person_name} detected")
                     door = True
+                    db_obj.update_log(person_name)
+                    print('Door is now unlocked for 5s!')
+                    time.sleep(5)
                     os.remove(path + '\\images\\unknown\\' + unknown_images)
                     break
 
 
         if door == True:
-            db_obj.update_log(person_name)
-            print('Door is now unlocked for 5s!')
-            time.sleep(5)
+            #db_obj.update_log(person_name)
+            #print('Door is now unlocked for 5s!')
+            #time.sleep(5)
             door = False
 
 def face_encode(name_list,image_list):

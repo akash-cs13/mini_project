@@ -8,9 +8,12 @@
 <div>
     <h2>Generate QR Code</h2>
     <form action="/login/qr-form" method="post">
-        <input type="text" title="days" name="days" placeholder="days" />
-        <input type="text" title="hours" name="hours" placeholder="hours" />
-        <input type="text" title="minutes" name="minutes" placeholder="minutes" />
+        <label for="days">Days:</label>
+        <input type="text" id="days" title="days" name="days" placeholder="days" value="0" size="2"/>
+        <label for="hours">Hours:</label>
+        <input type="text" id="hours" title="hours" name="hours" placeholder="hours" value="0" size="2"/>
+        <label for="minutes">Minutes:</label>
+        <input type="text" id="minutes" title="minutes" name="minutes" placeholder="minutes" value="0" size="2"/>
         <br>
         <br>
         <button type="submit" class="btn">Generate</button>

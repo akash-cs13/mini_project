@@ -1,5 +1,19 @@
-table,td{
- border: 1px solid white;
- width: 20%;
- margin: 0 auto;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+table,
+td {
+  border: 1px solid white;
+  width: 20%;
+  margin: 0 auto;
+}
+.btn {
+  color: white;
+  background-color: #212121;
+  /* background-color: fuchsia; */
+  border: 2px solid white;
+  border-radius: 2%;
+  padding: 0px 20px;
+  cursor: pointer;
 }

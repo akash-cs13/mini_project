@@ -49,7 +49,8 @@ class DataBase:
 
     def get_log(self):
         cur.execute("SELECT * FROM data_time")
-        return cur.fetchall()
+        temp_list = cur.fetchall()
+        return temp_list[::-1]
 
 
 if __name__ == "__main__":
